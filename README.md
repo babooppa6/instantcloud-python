@@ -15,7 +15,7 @@ If you don't have git installed, click the Download Zip button in the right side
 ## Requirements
 
 The `instantcloud.py` program requires the following Python modules: `hmac`, `hashlib`, `urlib`, and
-`urllib2`.
+`urllib2`. The `instantcloud.py` program uses Python 2.7. It does not yet support Python 3.
 
 ## Using instantcloud.py from the command-line
 
