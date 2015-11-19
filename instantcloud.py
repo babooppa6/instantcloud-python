@@ -89,10 +89,12 @@ class InstantCloudClient:
     def launchmachines(self, numMachines=None, licenseType=None, \
                        licenseId=None, userPassword=None, region=None, \
                        idleShutdown=None, machineType=None):
-        params = locals().copy()  #get dict of input arguments
+        inputargs = locals().copy()  #get dict of input arguments
+        params = {}
         # remove self argument and any arguments that are None
-        params = {k: v for k, v in params.iteritems() if v is not None and k != "self" }
-
+        for k, v in inputargs.iteritems():
+            if v is not None and k != "self":
+                params[k] = v
         machines = self.sendcommand('launch', params)
         return machines
 
