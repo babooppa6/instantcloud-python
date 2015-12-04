@@ -88,7 +88,7 @@ class InstantCloudClient:
 
     def launchmachines(self, numMachines=None, licenseType=None, \
                        licenseId=None, userPassword=None, region=None, \
-                       idleShutdown=None, machineType=None):
+                       idleShutdown=None, machineType=None, GRBVersion=None):
         inputargs = locals().copy()  #get dict of input arguments
         params = {}
         # remove self argument and any arguments that are None
@@ -234,6 +234,9 @@ if __name__ == "__main__":
                 skip = i+1
             elif arg == "-m" or arg == "--machinetype":
                 launchargs["machineType"] = sys.argv[i+1]
+                skip = i+1
+            elif arg == "-g" or arg == "--gurobiversion":
+                launchargs["GRBVersion"] = sys.argv[i+1]
                 skip = i+1
 
         machines = ic.launchmachines(**launchargs)
